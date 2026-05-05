@@ -55,12 +55,12 @@ const TRIAL_BALANCE = [
 ];
 
 const JOURNAL_ENTRIES = [
-  { date: '2026-05-04', ref: 'JE-5021', desc: 'Revenue recognition — SO-10421',    debit: 48250,  credit: 48250  },
-  { date: '2026-05-04', ref: 'JE-5020', desc: 'COGS — goods issued SO-10421',       debit: 22400,  credit: 22400  },
-  { date: '2026-05-03', ref: 'JE-5019', desc: 'Vendor payment — Atlas Industrial',  debit: 14200,  credit: 14200  },
-  { date: '2026-05-02', ref: 'JE-5018', desc: 'Payroll disbursement',                debit: 84600,  credit: 84600  },
-  { date: '2026-05-01', ref: 'JE-5017', desc: 'Month-end depreciation',              debit: 12400,  credit: 12400  },
-  { date: '2026-04-30', ref: 'JE-5016', desc: 'A/R receipt — Cobalt Components',    debit: 9426,   credit: 9426   },
+  { date: '2026-05-04', ref: 'JE-5021', desc: 'Revenue recognition — SO-10421',       debit: 48250,  credit: 48250  },
+  { date: '2026-05-04', ref: 'JE-5020', desc: 'COGS — goods issued SO-10421',          debit: 22400,  credit: 22400  },
+  { date: '2026-05-03', ref: 'JE-5019', desc: 'Vendor payment — Lanka Industrial Co.', debit: 14200,  credit: 14200  },
+  { date: '2026-05-02', ref: 'JE-5018', desc: 'Payroll disbursement',                   debit: 84600,  credit: 84600  },
+  { date: '2026-05-01', ref: 'JE-5017', desc: 'Month-end depreciation',                 debit: 12400,  credit: 12400  },
+  { date: '2026-04-30', ref: 'JE-5016', desc: 'A/R receipt — Dilmah Beverages Co.',    debit: 9426,   credit: 9426   },
 ];
 
 function GeneralLedger() {
@@ -159,13 +159,13 @@ function GeneralLedger() {
 // ─────────────────────────────────────────────────────────────────
 
 const TRANSACTIONS = [
-  { id: 'TXN-001', date: '2026-05-04', desc: 'Receipt — Cobalt Components Ltd.',   amount:   9425.75, ref: 'INV-9981' },
-  { id: 'TXN-002', date: '2026-05-03', desc: 'Payment — Atlas Industrial Supply',  amount: -14200.00, ref: 'PO-22418' },
-  { id: 'TXN-003', date: '2026-05-02', desc: 'Payroll — May cycle 1',              amount: -84600.00, ref: 'PR-042'   },
-  { id: 'TXN-004', date: '2026-05-02', desc: 'Receipt — Northwind Logistics',      amount:  48250.00, ref: 'SO-10413' },
-  { id: 'TXN-005', date: '2026-05-01', desc: 'Office rent — May',                  amount:  -8400.00, ref: 'LL-089'   },
-  { id: 'TXN-006', date: '2026-04-30', desc: 'Receipt — Brightline Retail Co.',    amount:  73900.00, ref: 'SO-10419' },
-  { id: 'TXN-007', date: '2026-04-30', desc: 'Utilities — April statement',        amount:  -3240.00, ref: 'UTL-12'   },
+  { id: 'TXN-001', date: '2026-05-04', desc: 'Receipt — Dilmah Beverages Co.',        amount:   9425.75, ref: 'INV-9981' },
+  { id: 'TXN-002', date: '2026-05-03', desc: 'Payment — Lanka Industrial Co.',         amount: -14200.00, ref: 'PO-22418' },
+  { id: 'TXN-003', date: '2026-05-02', desc: 'Payroll — May cycle 1',                  amount: -84600.00, ref: 'PR-042'   },
+  { id: 'TXN-004', date: '2026-05-02', desc: 'Receipt — Hayleys Exports Ltd.',         amount:  48250.00, ref: 'SO-10413' },
+  { id: 'TXN-005', date: '2026-05-01', desc: 'Office rent — May (Colombo 03)',         amount:  -8400.00, ref: 'LL-089'   },
+  { id: 'TXN-006', date: '2026-04-30', desc: 'Receipt — Lanka Tiles (Pvt) Ltd.',       amount:  73900.00, ref: 'SO-10419' },
+  { id: 'TXN-007', date: '2026-04-30', desc: 'Utilities — April statement',             amount:  -3240.00, ref: 'UTL-12'   },
 ];
 
 function BankReconciliation() {
@@ -184,7 +184,7 @@ function BankReconciliation() {
       <div className="t-card-hd">
         <div>
           <div className="t-card-title">Bank reconciliation</div>
-          <div className="t-card-sub">April 2026 · Checking account ··1892</div>
+          <div className="t-card-sub">April 2026 · Bank of Ceylon ··4821</div>
         </div>
         <button type="button" className="t-btn t-btn-primary t-btn-sm" disabled={unmatched > 0}>
           Reconcile period
@@ -194,7 +194,7 @@ function BankReconciliation() {
       <div className="t-recon-bar">
         <div>
           <div className="t-recon-label">Statement balance</div>
-          <div className="t-recon-value t-mono">$21,135.75</div>
+          <div className="t-recon-value t-mono">Rs. 21,135.75</div>
         </div>
         <div>
           <div className="t-recon-label">Unmatched items</div>
@@ -261,9 +261,9 @@ export function FinanceStub() {
   return (
     <div className="t-stub">
       <div className="t-grid-3">
-        <MetricCard label="Cash position"   value="$3.42M"  sub="6 accounts · USD" />
-        <MetricCard label="A/R outstanding" value="$691.8K" sub="75 invoices" />
-        <MetricCard label="A/P due 7 days"  value="$214.5K" sub="32 bills" />
+        <MetricCard label="Cash position"   value="Rs. 1.05B" sub="4 accounts · LKR" />
+        <MetricCard label="A/R outstanding" value="Rs. 211M"  sub="75 invoices" />
+        <MetricCard label="A/P due 7 days"  value="Rs. 65.5M" sub="32 bills" />
       </div>
       <div className="t-card">
         <div className="t-card-hd">
@@ -288,30 +288,190 @@ export function FinanceStub() {
 }
 
 // ─────────────────────────────────────────────────────────────────
+// Procurement — New PO modal
+// ─────────────────────────────────────────────────────────────────
+
+interface NewPOModalProps {
+  open: boolean;
+  onClose: () => void;
+  onSave: (po: { vendor: string; due: string; total: number; items: number }) => void;
+}
+
+function NewPOModal({ open, onClose, onSave }: NewPOModalProps) {
+  const [vendor,  setVendor]  = useState('');
+  const [due,     setDue]     = useState('');
+  const [wh,      setWh]      = useState('WH-Colombo');
+  const [terms,   setTerms]   = useState('Net 30');
+  const [lines,   setLines]   = useState([{ desc: '', qty: 1, price: 0 }]);
+  const [touched, setTouched] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      setVendor(''); setDue(''); setWh('WH-Colombo'); setTerms('Net 30');
+      setLines([{ desc: '', qty: 1, price: 0 }]);
+      setTouched(false);
+    }
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  const errs = {
+    vendor: !vendor.trim() ? 'Vendor is required' : '',
+    due:    !due            ? 'Delivery date is required' : '',
+    lines:  lines.some((l) => !l.desc.trim() || l.qty <= 0) ? 'Every line needs a description and quantity' : '',
+  };
+  const valid    = !errs.vendor && !errs.due && !errs.lines;
+  const subtotal = lines.reduce((a, l) => a + (Number(l.qty) || 0) * (Number(l.price) || 0), 0);
+
+  const updateLine = (i: number, key: string, val: string | number) =>
+    setLines((prev) => prev.map((l, idx) => idx === i ? { ...l, [key]: val } : l));
+  const addLine    = () => setLines((prev) => [...prev, { desc: '', qty: 1, price: 0 }]);
+  const removeLine = (i: number) => setLines((prev) => prev.filter((_, idx) => idx !== i));
+
+  const submit = () => {
+    setTouched(true);
+    if (!valid) return;
+    onSave({
+      vendor: vendor.trim(), due,
+      total: subtotal,
+      items: lines.reduce((a, l) => a + (Number(l.qty) || 0), 0),
+    });
+  };
+
+  return (
+    <>
+      <div className="t-scrim t-scrim-modal" onClick={onClose} />
+      <div className="t-modal" role="dialog" aria-label="New purchase order" style={{ width: 'min(820px,94vw)' }}>
+        <div className="t-modal-hd">
+          <div>
+            <div className="t-modal-eyebrow">New record</div>
+            <div className="t-modal-title">Create purchase order</div>
+          </div>
+          <button type="button" className="t-icon-btn" onClick={onClose} aria-label="Close">
+            <Icon name="x" size={16} />
+          </button>
+        </div>
+
+        <div className="t-modal-body">
+          <div className="t-form-grid">
+            <FormField label="Vendor" required error={touched ? errs.vendor : undefined}>
+              <input className="t-input" value={vendor} onChange={(e) => setVendor(e.target.value)}
+                placeholder="e.g. Lanka Industrial Co." />
+            </FormField>
+            <FormField label="Delivery date" required error={touched ? errs.due : undefined}>
+              <input className="t-input" type="date" value={due} onChange={(e) => setDue(e.target.value)} />
+            </FormField>
+            <FormField label="Warehouse">
+              <select className="t-input" value={wh} onChange={(e) => setWh(e.target.value)}>
+                <option>WH-Colombo</option><option>WH-Kandy</option><option>WH-Galle</option>
+              </select>
+            </FormField>
+            <FormField label="Payment terms">
+              <select className="t-input" value={terms} onChange={(e) => setTerms(e.target.value)}>
+                <option>Net 30</option><option>Net 45</option><option>Net 60</option><option>COD</option>
+              </select>
+            </FormField>
+          </div>
+
+          <div className="t-form-section">
+            <div className="t-section-hd">
+              <span>Line items</span>
+              {touched && errs.lines && <span className="t-error">{errs.lines}</span>}
+            </div>
+            <table className="t-table t-table-compact">
+              <thead>
+                <tr>
+                  <th>Description</th>
+                  <th className="t-num">Qty</th>
+                  <th className="t-num">Unit price</th>
+                  <th className="t-num">Subtotal</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {lines.map((l, i) => (
+                  <tr key={i}>
+                    <td>
+                      <input className="t-input t-input-sm" value={l.desc}
+                        onChange={(e) => updateLine(i, 'desc', e.target.value)}
+                        placeholder="Item description…" />
+                    </td>
+                    <td className="t-num">
+                      <input type="number" min="1" className="t-input t-input-sm t-input-num"
+                        value={l.qty} onChange={(e) => updateLine(i, 'qty', Number(e.target.value))} />
+                    </td>
+                    <td className="t-num">
+                      <input type="number" min="0" step="0.01" className="t-input t-input-sm t-input-num"
+                        value={l.price} onChange={(e) => updateLine(i, 'price', Number(e.target.value))} />
+                    </td>
+                    <td className="t-num t-mono">
+                      ${((Number(l.qty)||0)*(Number(l.price)||0)).toLocaleString(undefined,{minimumFractionDigits:2})}
+                    </td>
+                    <td>
+                      <button type="button" className="t-icon-btn" onClick={() => removeLine(i)}
+                        disabled={lines.length === 1} aria-label="Remove">
+                        <Icon name="x" size={13} />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <button type="button" className="t-btn t-btn-ghost t-btn-sm" onClick={addLine}>
+              <Icon name="plus" size={12} /> Add line
+            </button>
+          </div>
+        </div>
+
+        <div className="t-modal-foot">
+          <div className="t-modal-summary">
+            <span>Total</span>
+            <span className="t-mono">${subtotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
+          </div>
+          <div className="t-modal-actions">
+            <button type="button" className="t-btn t-btn-ghost" onClick={onClose}>Cancel</button>
+            <button type="button" className="t-btn t-btn-primary" onClick={submit}>Create PO</button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────
 // Procurement — Purchase orders
 // ─────────────────────────────────────────────────────────────────
 
 const PO_STATUSES = ['All', 'Pending approval', 'Approved', 'Partial', 'Received', 'Cancelled'];
 
 const POS = [
-  { id: 'PO-22420', vendor: 'Circuit Components Inc.',  date: '2026-05-03', due: '2026-05-17', status: 'Pending approval', total: 42000,  items: 8 },
-  { id: 'PO-22419', vendor: 'EMS Components Ltd.',      date: '2026-05-02', due: '2026-05-16', status: 'Approved',         total: 14200,  items: 3 },
-  { id: 'PO-22418', vendor: 'Atlas Industrial Supply',  date: '2026-04-30', due: '2026-05-14', status: 'Received',         total: 14200,  items: 6 },
-  { id: 'PO-22417', vendor: 'Rapid Packaging Co.',      date: '2026-04-29', due: '2026-05-13', status: 'Approved',         total: 6800,   items: 2 },
-  { id: 'PO-22416', vendor: 'Global Fasteners Inc.',    date: '2026-04-28', due: '2026-05-12', status: 'Partial',          total: 9600,   items: 4 },
-  { id: 'PO-22415', vendor: 'Sensor Systems Inc.',      date: '2026-04-27', due: '2026-05-11', status: 'Pending approval', total: 28400,  items: 5 },
-  { id: 'PO-22414', vendor: 'ChemSupply Co.',           date: '2026-04-26', due: '2026-05-10', status: 'Received',         total: 7200,   items: 3 },
-  { id: 'PO-22413', vendor: 'Midwest Metals',           date: '2026-04-25', due: '2026-05-09', status: 'Cancelled',        total: 0,      items: 0 },
+  { id: 'PO-22420', vendor: 'Ceylon Rubber Products Ltd.',      date: '2026-05-03', due: '2026-05-17', status: 'Pending approval', total: 42000,  items: 8 },
+  { id: 'PO-22419', vendor: 'Kandy Electronic Supplies',         date: '2026-05-02', due: '2026-05-16', status: 'Approved',         total: 14200,  items: 3 },
+  { id: 'PO-22418', vendor: 'Lanka Industrial Co.',              date: '2026-04-30', due: '2026-05-14', status: 'Received',         total: 14200,  items: 6 },
+  { id: 'PO-22417', vendor: 'Colombo Packaging Solutions',       date: '2026-04-29', due: '2026-05-13', status: 'Approved',         total: 6800,   items: 2 },
+  { id: 'PO-22416', vendor: 'Island Fasteners Pvt Ltd.',         date: '2026-04-28', due: '2026-05-12', status: 'Partial',          total: 9600,   items: 4 },
+  { id: 'PO-22415', vendor: 'Precision Sensors Lanka',           date: '2026-04-27', due: '2026-05-11', status: 'Pending approval', total: 28400,  items: 5 },
+  { id: 'PO-22414', vendor: 'Agro Chemicals Lanka (Pvt) Ltd.',   date: '2026-04-26', due: '2026-05-10', status: 'Received',         total: 7200,   items: 3 },
+  { id: 'PO-22413', vendor: 'Southern Metal Trading',            date: '2026-04-25', due: '2026-05-09', status: 'Cancelled',        total: 0,      items: 0 },
 ];
 
 function PurchaseOrders() {
-  const [filter, setFilter] = useState('All');
-  const [query,  setQuery]  = useState('');
+  const [filter,  setFilter]  = useState('All');
+  const [query,   setQuery]   = useState('');
+  const [showNew, setShowNew] = useState(false);
+  const [poList,  setPoList]  = useState(POS);
 
-  const counts: Record<string, number> = { All: POS.length };
-  PO_STATUSES.slice(1).forEach((s) => { counts[s] = POS.filter((p) => p.status === s).length; });
+  const counts: Record<string, number> = { All: poList.length };
+  PO_STATUSES.slice(1).forEach((s) => { counts[s] = poList.filter((p) => p.status === s).length; });
 
-  const filtered = POS.filter((p) => {
+  const filtered = poList.filter((p) => {
     if (filter !== 'All' && p.status !== filter) return false;
     if (query.trim()) {
       const q = query.toLowerCase();
@@ -322,7 +482,23 @@ function PurchaseOrders() {
 
   const totalCommitted = filtered.filter((p) => p.status !== 'Cancelled').reduce((a, p) => a + p.total, 0);
 
+  const handleSavePO = (data: { vendor: string; due: string; total: number; items: number }) => {
+    const maxNum = Math.max(...poList.map((p) => parseInt(p.id.replace('PO-', ''))));
+    const today  = new Date().toISOString().slice(0, 10);
+    setPoList((prev) => [{
+      id: `PO-${maxNum + 1}`,
+      vendor: data.vendor,
+      date:   today,
+      due:    data.due,
+      status: 'Pending approval',
+      total:  data.total,
+      items:  data.items,
+    }, ...prev]);
+    setShowNew(false);
+  };
+
   return (
+    <>
     <div className="t-card" style={{ overflow: 'hidden', padding: 0 }}>
       <div className="t-card-hd" style={{ padding: '18px 20px 12px' }}>
         <div>
@@ -334,7 +510,7 @@ function PurchaseOrders() {
             <Icon name="search" size={14} />
             <input placeholder="Search PO, vendor…" value={query} onChange={(e) => setQuery(e.target.value)} />
           </div>
-          <button type="button" className="t-btn t-btn-primary t-btn-sm">
+          <button type="button" className="t-btn t-btn-primary t-btn-sm" onClick={() => setShowNew(true)}>
             <Icon name="plus" size={12} /> New PO
           </button>
         </div>
@@ -384,6 +560,8 @@ function PurchaseOrders() {
         </div>
       )}
     </div>
+    <NewPOModal open={showNew} onClose={() => setShowNew(false)} onSave={handleSavePO} />
+    </>
   );
 }
 
@@ -409,13 +587,13 @@ export function ProcurementStub() {
 // ─────────────────────────────────────────────────────────────────
 
 const WORK_ORDERS = [
-  { id: 'WO-3348', product: 'Widget Assembly, 4mm (WX-100-04)',     qty: 500,  start: 'May 4',  end: 'May 7',  progress: 0.40, status: 'In progress', center: 'Line A' },
-  { id: 'WO-3347', product: 'HVAC Sub-Assembly, Type 2 (AS-HVAC-2)',qty: 20,   start: 'May 4',  end: 'May 11', progress: 0.10, status: 'In progress', center: 'Line B' },
-  { id: 'WO-3346', product: 'Widget Assembly, 6mm (WX-100-06)',     qty: 800,  start: 'May 2',  end: 'May 6',  progress: 0.85, status: 'In progress', center: 'Line A' },
-  { id: 'WO-3345', product: 'Stainless Bracket, M-series (BR-220)', qty: 2000, start: 'May 1',  end: 'May 5',  progress: 1.00, status: 'Complete',    center: 'Press'  },
-  { id: 'WO-3344', product: 'Widget Assembly, 4mm (WX-100-04)',     qty: 500,  start: 'Apr 28', end: 'May 2',  progress: 1.00, status: 'Complete',    center: 'Line A' },
-  { id: 'WO-3343', product: 'Filter Cartridge, A-grade (FL-009-A)', qty: 100,  start: 'May 5',  end: 'May 9',  progress: 0,    status: 'Planned',     center: 'Assembly' },
-  { id: 'WO-3342', product: 'Linear Motor, 45W (EL-LM-45)',         qty: 30,   start: 'May 7',  end: 'May 14', progress: 0,    status: 'Planned',     center: 'Line B' },
+  { id: 'WO-3348', product: 'Rubber Gasket, 40mm (RB-100-40)',                   qty: 500,  start: 'May 4',  end: 'May 7',  progress: 0.40, status: 'In progress', center: 'Line A' },
+  { id: 'WO-3347', product: 'Tea Processing Sub-Assembly, Type 2 (AS-TEP-2)',    qty: 20,   start: 'May 4',  end: 'May 11', progress: 0.10, status: 'In progress', center: 'Line B' },
+  { id: 'WO-3346', product: 'Rubber Gasket, 60mm (RB-100-60)',                   qty: 800,  start: 'May 2',  end: 'May 6',  progress: 0.85, status: 'In progress', center: 'Line A' },
+  { id: 'WO-3345', product: 'Ceramic Tile Bracket, Type A (BR-CER-01)',          qty: 2000, start: 'May 1',  end: 'May 5',  progress: 1.00, status: 'Complete',    center: 'Press'  },
+  { id: 'WO-3344', product: 'Rubber Gasket, 40mm (RB-100-40)',                   qty: 500,  start: 'Apr 28', end: 'May 2',  progress: 1.00, status: 'Complete',    center: 'Line A' },
+  { id: 'WO-3343', product: 'Coconut Carbon Filter, Grade A (FL-CCB-A)',         qty: 100,  start: 'May 5',  end: 'May 9',  progress: 0,    status: 'Planned',     center: 'Assembly' },
+  { id: 'WO-3342', product: 'Linear Motor, 45W (EL-LM-45)',                      qty: 30,   start: 'May 7',  end: 'May 14', progress: 0,    status: 'Planned',     center: 'Line B' },
 ];
 
 function ProductionSchedule() {
@@ -491,14 +669,14 @@ function ProductionSchedule() {
 // ─────────────────────────────────────────────────────────────────
 
 const BOM = [
-  { level: 0, sku: 'AS-HVAC-2',  name: 'HVAC Sub-Assembly, Type 2',    qtyPer: null, uom: 'ea', totalReq: 20  },
-  { level: 1, sku: 'HVAC-CORE',  name: 'HVAC Core Assembly',            qtyPer: 1,    uom: 'ea', totalReq: 20  },
-  { level: 2, sku: 'MT-CU-08',   name: 'Copper Tubing, 8mm × 3m',      qtyPer: 0.5,  uom: 'm',  totalReq: 10  },
-  { level: 2, sku: 'FL-009-A',   name: 'Filter Cartridge, A-grade',     qtyPer: 2,    uom: 'ea', totalReq: 40  },
-  { level: 2, sku: 'CH-PNT-W',   name: 'Industrial Paint, Warm White',  qtyPer: 0.1,  uom: 'L',  totalReq: 2   },
-  { level: 1, sku: 'BR-220-SS',  name: 'Stainless Bracket, M-series',   qtyPer: 4,    uom: 'ea', totalReq: 80  },
-  { level: 1, sku: 'FN-M6-25',   name: 'Hex Bolt, M6 × 25mm',          qtyPer: 8,    uom: 'box',totalReq: 160 },
-  { level: 1, sku: 'PK-CR-12',   name: 'Corrugated Carton, 12in',       qtyPer: 1,    uom: 'ea', totalReq: 20  },
+  { level: 0, sku: 'AS-TEP-2',  name: 'Tea Processing Sub-Assembly, Type 2', qtyPer: null, uom: 'ea', totalReq: 20  },
+  { level: 1, sku: 'TEP-CORE',  name: 'Tea Processing Core Assembly',         qtyPer: 1,    uom: 'ea', totalReq: 20  },
+  { level: 2, sku: 'MT-CU-08',  name: 'Copper Tubing, 8mm × 3m',             qtyPer: 0.5,  uom: 'm',  totalReq: 10  },
+  { level: 2, sku: 'FL-CCB-A',  name: 'Coconut Carbon Filter, Grade A',       qtyPer: 2,    uom: 'ea', totalReq: 40  },
+  { level: 2, sku: 'CH-RBX-A',  name: 'Natural Rubber Compound, Grade A',     qtyPer: 0.1,  uom: 'L',  totalReq: 2   },
+  { level: 1, sku: 'BR-CER-01', name: 'Ceramic Tile Bracket, Type A',         qtyPer: 4,    uom: 'ea', totalReq: 80  },
+  { level: 1, sku: 'FN-SS-M6',  name: 'Stainless Bolt, M6 × 25mm',           qtyPer: 8,    uom: 'box',totalReq: 160 },
+  { level: 1, sku: 'PK-PP-12',  name: 'Polypropylene Sack, 12kg',             qtyPer: 1,    uom: 'ea', totalReq: 20  },
 ];
 
 const INDENT = ['', '└─ ', '  └─ '];
@@ -509,7 +687,7 @@ function BillOfMaterials() {
       <div className="t-card-hd">
         <div>
           <div className="t-card-title">Bill of Materials</div>
-          <div className="t-card-sub">AS-HVAC-2 · HVAC Sub-Assembly, Type 2 · WO-3347 (qty 20)</div>
+          <div className="t-card-sub">AS-TEP-2 · Tea Processing Sub-Assembly, Type 2 · WO-3347 (qty 20)</div>
         </div>
         <div style={{ display: 'flex', gap: 8 }}>
           <button type="button" className="t-btn t-btn-ghost t-btn-sm">
@@ -581,44 +759,83 @@ export function ManufacturingStub() {
 }
 
 // ─────────────────────────────────────────────────────────────────
-// HR stub (unchanged)
+// HR stub
 // ─────────────────────────────────────────────────────────────────
 
+const TEAM_DATA = [
+  { name: 'K. Perera',         role: 'Sales Manager',        dept: 'Sales',           status: 'Active' },
+  { name: 'J. Fernando',       role: 'Account Executive',    dept: 'Sales',           status: 'Active' },
+  { name: 'D. Wickramasinghe', role: 'Account Executive',    dept: 'Sales',           status: 'PTO'    },
+  { name: 'B. Pathirana',      role: 'Sales Executive',      dept: 'Sales',           status: 'Active' },
+  { name: 'M. Jayawardena',    role: 'Senior Accountant',    dept: 'Finance',         status: 'Active' },
+  { name: 'S. Rajapaksa',      role: 'CFO',                  dept: 'Finance',         status: 'Active' },
+  { name: 'T. Gunasekara',     role: 'Junior Accountant',    dept: 'Finance',         status: 'Active' },
+  { name: 'R. de Silva',       role: 'Warehouse Lead',       dept: 'Operations',      status: 'Active' },
+  { name: 'L. Bandara',        role: 'Production Planner',   dept: 'Operations',      status: 'Active' },
+  { name: 'P. Senanayake',     role: 'Operations Manager',   dept: 'Operations',      status: 'Active' },
+  { name: 'A. Karunaratne',    role: 'QA Engineer',          dept: 'Manufacturing',   status: 'Active' },
+  { name: 'H. Dissanayake',    role: 'Machine Operator',     dept: 'Manufacturing',   status: 'PTO'    },
+  { name: 'N. Wijesinghe',     role: 'HR Manager',           dept: 'People',          status: 'Active' },
+  { name: 'C. Athukorala',     role: 'Recruiter',            dept: 'People',          status: 'Active' },
+  { name: 'V. Mendis',         role: 'IT Support',           dept: 'IT',              status: 'Active' },
+  { name: 'I. Samaraweera',    role: 'DevOps Engineer',      dept: 'IT',              status: 'Active' },
+  { name: 'G. Ranasinghe',     role: 'Procurement Officer',  dept: 'Procurement',     status: 'Active' },
+  { name: 'E. Weerasinghe',    role: 'Logistics Coordinator',dept: 'Operations',      status: 'Active' },
+];
+
+const TEAM_PAGE_SIZE = 6;
+
+function TeamDirectory() {
+  const [page, setPage] = useState(0);
+  const totalPages = Math.ceil(TEAM_DATA.length / TEAM_PAGE_SIZE);
+  const start   = page * TEAM_PAGE_SIZE;
+  const visible = TEAM_DATA.slice(start, start + TEAM_PAGE_SIZE);
+
+  return (
+    <div className="t-card">
+      <div className="t-card-hd">
+        <div className="t-card-title">Team directory</div>
+        <span className="t-card-sub">
+          Showing {start + 1}–{Math.min(start + TEAM_PAGE_SIZE, TEAM_DATA.length)} of {TEAM_DATA.length}
+        </span>
+      </div>
+      <table className="t-table">
+        <thead><tr><th>Name</th><th>Role</th><th>Department</th><th>Status</th></tr></thead>
+        <tbody>
+          {visible.map((t) => (
+            <tr key={t.name}>
+              <td><div className="t-cell-primary">{t.name}</div></td>
+              <td className="t-cell-sub">{t.role}</td>
+              <td className="t-cell-sub">{t.dept}</td>
+              <td><Pill status={t.status} /></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className="t-pager">
+        <button type="button" className="t-btn t-btn-ghost t-btn-sm"
+          onClick={() => setPage((p) => p - 1)} disabled={page === 0}>
+          ← Prev
+        </button>
+        <span className="t-pager-info">Page {page + 1} of {totalPages}</span>
+        <button type="button" className="t-btn t-btn-ghost t-btn-sm"
+          onClick={() => setPage((p) => p + 1)} disabled={page >= totalPages - 1}>
+          Next →
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function HRStub() {
-  const team = [
-    { name: 'K. Reyes',     role: 'Sales Manager',      dept: 'Sales',      status: 'Active' },
-    { name: 'J. Park',      role: 'Account Executive',  dept: 'Sales',      status: 'Active' },
-    { name: 'D. Whitfield', role: 'Account Executive',  dept: 'Sales',      status: 'PTO'    },
-    { name: 'M. Hossain',   role: 'Senior Accountant',  dept: 'Finance',    status: 'Active' },
-    { name: 'R. Iqbal',     role: 'Warehouse Lead',     dept: 'Operations', status: 'Active' },
-    { name: 'L. Chen',      role: 'Production Planner', dept: 'Operations', status: 'Active' },
-  ];
   return (
     <div className="t-stub">
       <div className="t-grid-3">
-        <MetricCard label="Headcount"          value="248"    sub="+6 this quarter" />
-        <MetricCard label="Open requisitions"  value="11"     sub="3 in late stage" />
+        <MetricCard label="Headcount"          value="248"     sub="+6 this quarter" />
+        <MetricCard label="Open requisitions"  value="11"      sub="3 in late stage" />
         <MetricCard label="Avg tenure"         value="4.8 yrs" sub="Across all depts" />
       </div>
-      <div className="t-card">
-        <div className="t-card-hd">
-          <div className="t-card-title">Team directory</div>
-          <span className="t-card-sub">Showing 6 of 248</span>
-        </div>
-        <table className="t-table">
-          <thead><tr><th>Name</th><th>Role</th><th>Department</th><th>Status</th></tr></thead>
-          <tbody>
-            {team.map((t) => (
-              <tr key={t.name}>
-                <td><div className="t-cell-primary">{t.name}</div></td>
-                <td className="t-cell-sub">{t.role}</td>
-                <td className="t-cell-sub">{t.dept}</td>
-                <td><Pill status={t.status} /></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <TeamDirectory />
     </div>
   );
 }
@@ -629,10 +846,10 @@ export function HRStub() {
 
 export function ProjectsStub() {
   const projects = [
-    { name: 'Helios renewal — Phase 2',  client: 'Helios Manufacturing',  progress: 0.62, due: 'Jun 14', status: 'On track' },
-    { name: 'Northwind WMS rollout',     client: 'Northwind Logistics',    progress: 0.34, due: 'Aug 02', status: 'On track' },
-    { name: 'Brightline integration',    client: 'Brightline Retail Co.',  progress: 0.88, due: 'May 20', status: 'At risk'  },
-    { name: 'Q3 capacity expansion',     client: 'Internal',               progress: 0.12, due: 'Sep 30', status: 'On track' },
+    { name: 'John Keells renewal — Phase 2', client: 'John Keells Trading',     progress: 0.62, due: 'Jun 14', status: 'On track' },
+    { name: 'Hayleys WMS rollout',           client: 'Hayleys Exports Ltd.',     progress: 0.34, due: 'Aug 02', status: 'On track' },
+    { name: 'Lanka Tiles integration',       client: 'Lanka Tiles (Pvt) Ltd.',   progress: 0.88, due: 'May 20', status: 'At risk'  },
+    { name: 'Q3 capacity expansion',         client: 'Internal',                  progress: 0.12, due: 'Sep 30', status: 'On track' },
   ];
   return (
     <div className="t-stub">

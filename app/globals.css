@@ -525,6 +525,7 @@ input, select, textarea { font-family: inherit; color: inherit; }
   color: var(--primary-ink);
   flex-shrink: 0;
   margin-top: 1px;
+  padding: 0;
 }
 .t-tasks li.is-done .t-check { background: var(--primary); border-color: var(--primary); }
 .t-task-body { flex: 1; min-width: 0; }
@@ -989,7 +990,7 @@ input, select, textarea { font-family: inherit; color: inherit; }
 
 /* ── Content entry animation + scroll ───────────────────────── */
 .t-dash, .t-sales, .t-stub {
-  animation: contentIn .2s ease-out both;
+  animation: contentIn .2s ease-out backwards;
 }
 @keyframes contentIn {
   from { opacity: 0; transform: translateY(6px); }
@@ -1095,3 +1096,12 @@ input, select, textarea { font-family: inherit; color: inherit; }
 }
 @keyframes toastIn { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; transform: translate(-50%, 0); } }
 .t-toast-success { background: var(--primary); color: var(--primary-ink); }
+
+/* ── Pagination ────────────────────────────────────────────────── */
+.t-pager {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  padding: 12px 0 4px;
+  border-top: 1px solid var(--border);
+  margin-top: 2px;
+}
+.t-pager-info { font-size: 12px; color: var(--ink-3); }

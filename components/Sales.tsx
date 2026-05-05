@@ -47,10 +47,10 @@ function OrderDrawer({ order, onClose, onUpdateStatus }: {
   }, [onClose]);
 
   const lines = [
-    { sku: 'WX-100-04', name: 'Widget Assembly, 4mm', qty: 200, price: 12.40 },
-    { sku: 'BR-220-SS', name: 'Stainless Bracket, M-series', qty: 1500, price: 3.40 },
-    { sku: 'PK-CR-12', name: 'Corrugated Carton, 12in', qty: 800, price: 1.10 },
-    { sku: 'FN-M6-25', name: 'Hex Bolt, M6 × 25mm (box)', qty: 12, price: 8.80 },
+    { sku: 'RB-100-40', name: 'Rubber Gasket, 40mm', qty: 200, price: 12.40 },
+    { sku: 'BR-CER-01', name: 'Ceramic Tile Bracket, Type A', qty: 1500, price: 3.40 },
+    { sku: 'PK-PP-12',  name: 'Polypropylene Sack, 12kg', qty: 800, price: 1.10 },
+    { sku: 'FN-SS-M6',  name: 'Stainless Bolt, M6 × 25mm (box)', qty: 12, price: 8.80 },
   ];
   const subtotal = lines.reduce((a, l) => a + l.qty * l.price, 0);
   const tax = subtotal * 0.08;
@@ -90,7 +90,7 @@ function OrderDrawer({ order, onClose, onUpdateStatus }: {
           <Field label="Payment terms" value="Net 30" />
           <Field label="Ship via" value="Standard ground" />
           <Field label="PO ref" value="—" />
-          <Field label="Warehouse" value="WH-Central" />
+          <Field label="Warehouse" value="WH-Colombo" />
         </div>
 
         <div className="t-drawer-section">
@@ -162,7 +162,7 @@ function NewOrderModal({ open, onClose, onCreate, customers, inventoryItems, con
   const [customer, setCustomer] = useState('');
   const [contact, setContact] = useState('');
   const [due, setDue] = useState('');
-  const [warehouse, setWarehouse] = useState('WH-Central');
+  const [warehouse, setWarehouse] = useState('WH-Colombo');
   const [terms, setTerms] = useState('Net 30');
   const [lines, setLines] = useState([{ sku: '', qty: 1, price: 0 }]);
   const [touched, setTouched] = useState(false);
@@ -237,7 +237,7 @@ function NewOrderModal({ open, onClose, onCreate, customers, inventoryItems, con
             </FormField>
             <FormField label="Warehouse">
               <select className="t-input" value={warehouse} onChange={(e) => setWarehouse(e.target.value)}>
-                <option>WH-Central</option><option>WH-East</option><option>WH-West</option>
+                <option>WH-Colombo</option><option>WH-Kandy</option><option>WH-Galle</option>
               </select>
             </FormField>
             <FormField label="Payment terms">
@@ -246,8 +246,8 @@ function NewOrderModal({ open, onClose, onCreate, customers, inventoryItems, con
               </select>
             </FormField>
             <FormField label="Owner">
-              <select className="t-input" defaultValue="K. Reyes">
-                <option>K. Reyes</option><option>J. Park</option><option>D. Whitfield</option>
+              <select className="t-input" defaultValue="K. Perera">
+                <option>K. Perera</option><option>J. Fernando</option><option>D. Wickramasinghe</option>
               </select>
             </FormField>
           </div>

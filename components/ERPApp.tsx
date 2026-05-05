@@ -14,7 +14,7 @@ import type { ModuleId, Order, InventoryItem } from '@/lib/types';
 type Toast = { kind: 'success' | 'info'; msg: string } | null;
 
 const MODULE_META: Record<ModuleId, { title: string; crumb: string[]; primary: string | null }> = {
-  home:          { title: 'Good morning, Kira',   crumb: ['Workspace', 'Home'],        primary: null          },
+  home:          { title: 'Good morning, Kamal',  crumb: ['Workspace', 'Home'],        primary: null          },
   sales:         { title: 'Sales orders',          crumb: ['Sales & CRM', 'Orders'],    primary: 'New order'   },
   inventory:     { title: 'Inventory items',       crumb: ['Inventory', 'Items'],       primary: 'New item'    },
   finance:       { title: 'Finance overview',      crumb: ['Finance', 'Overview'],      primary: null          },

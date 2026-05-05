@@ -97,7 +97,7 @@ export default function Topbar({ title, breadcrumb, primaryLabel, onPrimary, the
             <span>{primaryLabel}</span>
           </button>
         )}
-        <div className="t-avatar" title="K. Reyes">KR</div>
+        <div className="t-avatar" title="Kamal Perera">KP</div>
       </div>
     </header>
   );

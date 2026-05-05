@@ -36,10 +36,10 @@ export default function Sidebar({ active, onNav, modules }: SidebarProps) {
 
       <div className="t-sidebar-foot">
         <div className="t-org">
-          <div className="t-org-mark">A</div>
+          <div className="t-org-mark">C</div>
           <div className="t-org-meta">
-            <div className="t-org-name">Acme Holdings</div>
-            <div className="t-org-sub">FY 2026 · USD</div>
+            <div className="t-org-name">Ceylon Industrial Group</div>
+            <div className="t-org-sub">FY 2026 · LKR</div>
           </div>
           <button className="t-icon-btn" aria-label="Switch org">
             <Icon name="chevron-down" size={14} />
