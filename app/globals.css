@@ -46,6 +46,75 @@
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
+/* ── Ocean theme ─────────────────────────────────────────────── */
+[data-theme="ocean"] {
+  --bg: #f0f6fc;
+  --surface: #ffffff;
+  --surface-alt: #e4eef8;
+  --border: #ccd8ec;
+  --border-strong: #aec4de;
+  --ink: #0c1c30;
+  --ink-2: #1e3a5a;
+  --ink-3: #4a6e90;
+  --ink-4: #88aac8;
+
+  --primary: #1b4a82;
+  --primary-2: #2358a0;
+  --primary-ink: #ffffff;
+  --primary-tint: #daeaf8;
+
+  --accent: #0f9484;
+  --accent-tint: #d8f2ee;
+
+  --ok: #1a8a6a;
+  --ok-tint: #d4f0e4;
+  --warn: #b87820;
+  --warn-tint: #faefd0;
+  --crit: #c02830;
+  --crit-tint: #fde0e2;
+  --neutral: #607080;
+  --neutral-tint: #dce8f4;
+
+  --shadow-sm: 0 1px 0 rgba(10,30,60,.05), 0 1px 2px rgba(10,30,60,.06);
+  --shadow-md: 0 1px 0 rgba(10,30,60,.05), 0 4px 16px rgba(10,30,60,.08);
+  --shadow-lg: 0 24px 60px rgba(10,30,60,.18), 0 4px 12px rgba(10,30,60,.10);
+}
+
+/* ── Dusk theme ──────────────────────────────────────────────── */
+[data-theme="dusk"] {
+  --bg: #f7f4fc;
+  --surface: #ffffff;
+  --surface-alt: #ede6f8;
+  --border: #dcd0f0;
+  --border-strong: #c8b8e4;
+  --ink: #18082c;
+  --ink-2: #38205a;
+  --ink-3: #6a5090;
+  --ink-4: #a888cc;
+
+  --primary: #4a1e88;
+  --primary-2: #5a28a4;
+  --primary-ink: #ffffff;
+  --primary-tint: #e8dcf8;
+
+  --accent: #c46a18;
+  --accent-tint: #faeada;
+
+  --ok: #2a7848;
+  --ok-tint: #d4ece0;
+  --warn: #b87018;
+  --warn-tint: #faeada;
+  --crit: #b83028;
+  --crit-tint: #fde0de;
+  --neutral: #6a5090;
+  --neutral-tint: #e8dcf8;
+
+  --shadow-sm: 0 1px 0 rgba(30,10,60,.05), 0 1px 2px rgba(30,10,60,.06);
+  --shadow-md: 0 1px 0 rgba(30,10,60,.05), 0 4px 16px rgba(30,10,60,.08);
+  --shadow-lg: 0 24px 60px rgba(30,10,60,.20), 0 4px 12px rgba(30,10,60,.12);
+}
+
+/* ── Dark theme ──────────────────────────────────────────────── */
 [data-theme="dark"] {
   --bg: #14161a;
   --surface: #1c1f24;
@@ -876,6 +945,47 @@ input, select, textarea { font-family: inherit; color: inherit; }
 .t-report-name { font-family: var(--font-display); font-size: 15px; color: var(--ink); margin: 2px 0 4px; }
 .t-report-meta { font-size: 11px; color: var(--ink-3); flex: 1; }
 .t-report-foot { display: flex; gap: 8px; margin-top: 8px; }
+
+/* ── Theme picker ────────────────────────────────────────────── */
+.t-theme-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 5px;
+  z-index: 200;
+  min-width: 136px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  animation: fadeIn .12s ease-out;
+}
+.t-theme-opt {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 9px;
+  border-radius: var(--radius);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
+}
+.t-theme-opt:hover { background: var(--surface-alt); color: var(--ink); }
+.t-theme-opt.is-on { background: var(--primary-tint); color: var(--primary); font-weight: 500; }
+.t-theme-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 2px solid;
+  flex-shrink: 0;
+}
 
 /* ── Content entry animation + scroll ───────────────────────── */
 .t-dash, .t-sales, .t-stub {

@@ -32,12 +32,12 @@ export default function ERPApp() {
   const [showNew,     setShowNew]     = useState(false);
   const [showNewItem, setShowNewItem] = useState(false);
   const [toast,       setToast]       = useState<Toast>(null);
-  const [dark,        setDark]        = useState(false);
+  const [theme,       setTheme]       = useState('light');
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-  }, [dark]);
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
 
   useEffect(() => {
     if (!toast) return;
@@ -96,8 +96,8 @@ export default function ERPApp() {
           breadcrumb={meta.crumb}
           primaryLabel={meta.primary}
           onPrimary={onPrimary}
-          dark={dark}
-          onToggleDark={() => setDark((d) => !d)}
+          theme={theme}
+          onSetTheme={setTheme}
         />
         <div className="t-content" ref={contentRef}>
           {active === 'home'          && <Dashboard kpis={KPIS} revenueSeries={REVENUE_SERIES} activity={ACTIVITY} tasks={TASKS} />}

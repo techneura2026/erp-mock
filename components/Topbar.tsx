@@ -1,17 +1,37 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import Icon from './Icon';
+
+const THEMES = [
+  { id: 'light', label: 'Light', bg: '#fbfaf6', border: '#16433a' },
+  { id: 'dark',  label: 'Dark',  bg: '#14161a', border: '#5fb5a0' },
+  { id: 'ocean', label: 'Ocean', bg: '#f0f6fc', border: '#1b4a82' },
+  { id: 'dusk',  label: 'Dusk',  bg: '#f7f4fc', border: '#4a1e88' },
+];
 
 interface TopbarProps {
   title: string;
   breadcrumb: string[];
   primaryLabel?: string | null;
   onPrimary?: () => void;
-  dark: boolean;
-  onToggleDark: () => void;
+  theme: string;
+  onSetTheme: (t: string) => void;
 }
 
-export default function Topbar({ title, breadcrumb, primaryLabel, onPrimary, dark, onToggleDark }: TopbarProps) {
+export default function Topbar({ title, breadcrumb, primaryLabel, onPrimary, theme, onSetTheme }: TopbarProps) {
+  const [showPicker, setShowPicker] = useState(false);
+  const pickerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!showPicker) return;
+    const handler = (e: MouseEvent) => {
+      if (!pickerRef.current?.contains(e.target as Node)) setShowPicker(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [showPicker]);
+
   return (
     <header className="t-topbar">
       <div className="t-topbar-left">
@@ -32,28 +52,47 @@ export default function Topbar({ title, breadcrumb, primaryLabel, onPrimary, dar
           <input placeholder="Search orders, items, customers…" />
           <span className="t-kbd">⌘K</span>
         </div>
-        <button className="t-icon-btn t-bell" aria-label="Notifications">
+
+        <button type="button" className="t-icon-btn t-bell" aria-label="Notifications">
           <Icon name="bell" size={17} />
           <span className="t-bell-dot" />
         </button>
-        <button
-          className="t-icon-btn"
-          aria-label="Toggle dark mode"
-          onClick={onToggleDark}
-          title={dark ? 'Switch to light mode' : 'Switch to dark mode'}
-        >
-          {dark ? (
-            <svg width={17} height={17} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-            </svg>
-          ) : (
-            <svg width={17} height={17} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-            </svg>
+
+        {/* Theme picker */}
+        <div ref={pickerRef} style={{ position: 'relative' }}>
+          <button
+            type="button"
+            className="t-icon-btn"
+            aria-label="Change theme"
+            title="Change theme"
+            onClick={() => setShowPicker((v) => !v)}
+          >
+            <Icon name="theme" size={16} />
+          </button>
+
+          {showPicker && (
+            <div className="t-theme-menu" role="menu">
+              {THEMES.map((t) => (
+                <button
+                  type="button"
+                  key={t.id}
+                  role="menuitem"
+                  className={'t-theme-opt' + (theme === t.id ? ' is-on' : '')}
+                  onClick={() => { onSetTheme(t.id); setShowPicker(false); }}
+                >
+                  <span
+                    className="t-theme-dot"
+                    style={{ background: t.bg, borderColor: t.border }}
+                  />
+                  {t.label}
+                </button>
+              ))}
+            </div>
           )}
-        </button>
+        </div>
+
         {primaryLabel && (
-          <button className="t-btn t-btn-primary" onClick={onPrimary}>
+          <button type="button" className="t-btn t-btn-primary" onClick={onPrimary}>
             <Icon name="plus" size={14} />
             <span>{primaryLabel}</span>
           </button>
